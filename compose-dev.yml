@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  web:
+    image: download-proxy:latest
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8080:80"
+    environment:
+      - "PORT=80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
